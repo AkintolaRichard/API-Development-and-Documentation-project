@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './stylesheets/App.css';
-import FormView from './components/FormView';
 import QuestionView from './components/QuestionView';
 import Header from './components/Header';
 import QuizView from './components/QuizView';
+import AddView from './components/AddView';
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path='/' exact component={QuestionView} />
-            <Route path='/add' component={FormView} />
+            <Route path='/add' component={AddView} />
             <Route path='/play' component={QuizView} />
             <Route component={QuestionView} />
           </Switch>
