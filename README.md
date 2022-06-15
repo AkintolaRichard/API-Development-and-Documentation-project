@@ -2,7 +2,7 @@
 
 ## Trivia App
 
-Trivia App is a web application containing trivia game which a user can play and have fun.
+Trivia App is a web application containing a trivia game.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ export FLASK_ENV=development
 flask run
 ```
 
-These commands put the application in development and directs our application to use the `__init__.py` file in our flaskr folder. Working in development mode shows an interactive debugger in the console and restarts the server whenever changes are made. If running locally on Windows, look for the commands in the [Flask documentation](http://flask.pocoo.org/docs/1.0/tutorial/factory/).
+These commands put the application in development and directs our application to use the `__init__.py` file in the flaskr folder. Working in development mode shows an interactive debugger in the console and restarts the server whenever changes are made. If running locally on Windows, look for the commands in the [Flask documentation](http://flask.pocoo.org/docs/1.0/tutorial/factory/).
 
 The application is run on `http://127.0.0.1:5000/` by default and is a proxy in the frontend configuration. 
 
@@ -297,6 +297,9 @@ The API will return three error types when requests fail:
 
 ## Authors
 Udacity, Coach Caryn, Richard Akintola
+
+## License
+Check [License](./LICENSE.txt) for the license.
 
 ## Acknowledgements 
 The Project Reviewers, the awesome team at Udacity, and all of the students, soon to be full stack extraordinaires!
