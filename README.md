@@ -286,7 +286,7 @@ The API will return three error types when requests fail:
 #### POST /api/v1.0/categories
 - General:
     - Creates a new category using the submitted category. Returns success value.
-        - `curl http://127.0.0.1:5000/api/v1.0/categories -X POST -H "Content-Type: application/json" -d '{"category":"Technology"}'`
+        - `curl http://127.0.0.1:5000/api/v1.0/categories -X POST -H "Content-Type: application/json" -d '{"type":"Technology"}'`
         ```
         {
         "success": true,
