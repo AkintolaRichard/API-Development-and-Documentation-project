@@ -177,36 +177,53 @@ def create_app(test_config=None):
                         'success': True,
                         'question': question,
                     })
-                current_category = Category.query.filter(
-                    Category.type == quiz_category['id']
-                    ).one_or_none()
-                if current_category:
-                    result = Question.query.filter(
-                        Question.id.not_in(previousQuestions),
-                        Question.category == current_category.id
-                        ).all()
-                    if result:
-                        if len(result) > 1:
+                else:
+                    current_category = Category.query.filter(
+                        Category.id == quiz_category['id']
+                        ).one_or_none()
+                    if len(previousQuestions) != 0:
+                        result = Question.query.filter(
+                            Question.id.not_in(previousQuestions),
+                            Question.category == current_category.id
+                            ).all()
+                        if result:
+                            if len(result) > 1:
+                                available_questions = [
+                                    question.format() for question in result
+                                    ]
+                                question = random.choice(available_questions)
+                            else:
+                                question = result.format()
+                            return jsonify({
+                                'success': True,
+                                'question': question
+                            })
+                        else:
+                            result = Question.query.all()
                             available_questions = [
                                 question.format() for question in result
                                 ]
                             question = random.choice(available_questions)
-                        else:
-                            question = result.format()
-                        return jsonify({
-                            'success': True,
-                            'question': question
-                        })
+                            return jsonify({
+                                'success': True,
+                                'question': question
+                            })
                     else:
-                        result = Question.query.all()
-                        available_questions = [
-                            question.format() for question in result
-                            ]
-                        question = random.choice(available_questions)
-                        return jsonify({
-                            'success': True,
-                            'question': question
-                        })
+                        result = Question.query.filter(
+                            Question.category == current_category.id
+                            ).all()
+                        if result:
+                            if len(result) > 1:
+                                available_questions = [
+                                    question.format() for question in result
+                                    ]
+                                question = random.choice(available_questions)
+                            else:
+                                question = result.format()
+                            return jsonify({
+                                'success': True,
+                                'question': question
+                            })
             else:
                 current_category = Category.query.filter(
                     Category.type == quiz_category

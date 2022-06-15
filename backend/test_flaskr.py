@@ -16,7 +16,6 @@ class TriviaTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "trivia_test"
         self.database_path = 'postgresql://{}:{}@{}/{}'.format(
             DB_USER,
             DB_PASSWORD,
@@ -30,7 +29,7 @@ class TriviaTestCase(unittest.TestCase):
             "difficulty": 1,
             "category": 3
             }
-        self.new_category = {"category": "Marriage"}
+        self.new_category = {"type": "Marriage"}
 
         # binds the app to the current context
         with self.app.app_context():
