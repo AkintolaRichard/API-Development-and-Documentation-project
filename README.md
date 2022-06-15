@@ -299,5 +299,5 @@ The API will return three error types when requests fail:
 Udacity, Coach Caryn, Richard Akintola
 
 ## Acknowledgements 
-The the Project Reviewers, the awesome team at Udacity, and all of the students, soon to be full stack extraordinaires!
+The Project Reviewers, the awesome team at Udacity, and all of the students, soon to be full stack extraordinaires!
 
